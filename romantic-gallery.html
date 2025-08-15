@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Mansoora's Romantic Image Gallery 💕</title>
+    <link rel="stylesheet" href="romantic-gallery-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Romantic Background Elements -->
+    <div class="romantic-background">
+        <!-- Floating Hearts -->
+        <div class="floating-hearts">
+            <div class="heart heart1">💖</div>
+            <div class="heart heart2">💕</div>
+            <div class="heart heart3">💗</div>
+            <div class="heart heart4">💝</div>
+            <div class="heart heart5">💞</div>
+            <div class="heart heart6">💖</div>
+            <div class="heart heart7">💕</div>
+            <div class="heart heart8">💗</div>
+        </div>
+
+        <!-- Floating Rose Petals -->
+        <div class="floating-petals">
+            <div class="petal petal1">🌹</div>
+            <div class="petal petal2">🌸</div>
+            <div class="petal petal3">🌺</div>
+            <div class="petal petal4">🌻</div>
+            <div class="petal petal5">🌷</div>
+            <div class="petal petal6">🌹</div>
+        </div>
+
+        <!-- Romantic Stars -->
+        <div class="romantic-stars">
+            <div class="star star1">⭐</div>
+            <div class="star star2">✨</div>
+            <div class="star star3">🌟</div>
+            <div class="star star4">💫</div>
+            <div class="star star5">⭐</div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <nav class="gallery-nav">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <div class="brand-avatar">
+                        <div class="heart-shaped">
+                            <div class="heart-border"></div>
+                            <div class="romantic-glow"></div>
+                            <img src="Pic.png" alt="Mansoora's Gallery" class="brand-avatar-img">
+                        </div>
+                    </div>
+                    <div class="brand-text">
+                        <h1>💕 Mansoora's Romantic Gallery 💕</h1>
+                        <p>Where Every Memory Sparkles ✨</p>
+                    </div>
+                </div>
+                
+                <div class="nav-actions">
+                    <button class="nav-btn upload-btn" onclick="openUploadModal()">
+                        <span class="btn-icon">📸</span>
+                        <span class="btn-text">Upload Images</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <button class="nav-btn gallery-view-btn" onclick="toggleGalleryView()">
+                        <span class="btn-icon" id="viewIcon">🔳</span>
+                        <span class="btn-text">Grid View</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Image Gallery Container -->
+        <div class="gallery-container" id="galleryContainer">
+            <!-- Gallery Header -->
+            <div class="gallery-header">
+                <div class="gallery-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="imageCount">0</span>
+                        <span class="stat-label">Beautiful Memories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="favoriteCount">0</span>
+                        <span class="stat-label">Favorite Moments</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All Images 💖</button>
+                    <button class="filter-btn" data-filter="favorites">Favorites 💝</button>
+                    <button class="filter-btn" data-filter="recent">Recent 📅</button>
+                </div>
+            </div>
+
+            <!-- Image Search -->
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search your precious memories... 💕">
+                    <button class="search-btn">
+                        <span>🔍</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Sample Images (these will be replaced by uploaded images) -->
+                <div class="image-card sample-card" data-category="sample">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">📷</span>
+                                <p class="placeholder-text">Your first beautiful memory awaits...</p>
+                                <button class="placeholder-btn" onclick="openUploadModal()">
+                                    Upload Images 💕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-content">
+                    <div class="empty-icon">📸💕</div>
+                    <h3>No memories found</h3>
+                    <p>Start building your romantic gallery by uploading your first image!</p>
+                    <button class="empty-btn" onclick="openUploadModal()">
+                        Upload Your First Memory 💖
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Modal -->
+        <div class="upload-modal" id="uploadModal">
+            <div class="modal-overlay" onclick="closeUploadModal()"></div>
+            <div class="modal-content upload-modal-content">
+                <div class="modal-header">
+                    <h3>💕 Share Your Beautiful Memories 💕</h3>
+                    <button class="modal-close" onclick="closeUploadModal()">✕</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                        <div class="upload-content" onclick="document.getElementById('fileInput').click()">
+                            <div class="upload-icon">📸</div>
+                            <h4>Drop your images here or click to browse</h4>
+                            <p>Support: JPEG, PNG, GIF, WebP (Max: 10MB each)</p>
+                            <button class="browse-btn">Browse Images 💖</button>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-preview" id="uploadPreview" style="display: none;">
+                        <h4>Images to Upload:</h4>
+                        <div class="preview-grid" id="previewGrid"></div>
+                        <div class="upload-actions">
+                            <button class="cancel-upload" onclick="clearUploadPreview()">Cancel</button>
+                            <button class="confirm-upload" onclick="processUploadedImages()">
+                                Add to Gallery 💕
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Viewer Modal -->
+        <div class="image-viewer-modal" id="imageViewerModal">
+            <div class="viewer-overlay" onclick="closeImageViewer()"></div>
+            <div class="viewer-content">
+                <div class="viewer-header">
+                    <div class="viewer-info">
+                        <h3 id="viewerTitle">Beautiful Memory</h3>
+                        <p id="viewerDate">Just now</p>
+                    </div>
+                    <div class="viewer-actions">
+                        <button class="viewer-btn favorite-btn" onclick="toggleFavorite()" id="favoriteBtn">
+                            <span class="favorite-icon">🤍</span>
+                        </button>
+                        <button class="viewer-btn download-btn" onclick="downloadImage()">
+                            <span>⬇️</span>
+                        </button>
+                        <button class="viewer-btn delete-btn" onclick="deleteImage()">
+                            <span>🗑️</span>
+                        </button>
+                        <button class="viewer-btn close-btn" onclick="closeImageViewer()">
+                            <span>✕</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="viewer-image-container">
+                    <button class="viewer-nav prev-btn" onclick="viewPreviousImage()">❮</button>
+                    <div class="viewer-image-wrapper">
+                        <img id="viewerImage" class="viewer-image" alt="Viewing image">
+                        <div class="image-loader" id="imageLoader">
+                            <div class="loader-heart">💖</div>
+                        </div>
+                    </div>
+                    <button class="viewer-nav next-btn" onclick="viewNextImage()">❯</button>
+                </div>
+                
+                <div class="viewer-footer">
+                    <div class="image-details">
+                        <span id="imageIndex">1</span> of <span id="totalImages">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="loading-heart">💕</div>
+                <p class="loading-text">Processing your beautiful memories...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <script src="romantic-gallery-app.js"></script>
+</body>
+</html>
