@@ -5,7 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💖 Mansoora's Romantic AI Assistant 💖</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <style>
+            /* Romantic Pink Button */
+            .romantic-button {
+                background: #ff5ca2;
+                /* bright pink background */
+                color: white;
+                /* white text */
+                border: none;
+                /* remove default border */
+                border-radius: 50px;
+                /* rounded pill shape */
+                padding: 12px 24px;
+                /* space inside the button */
+                font-size: 16px;
+                /* readable text size */
+                cursor: pointer;
+                /* pointer on hover */
+                box-shadow: 0 4px 10px rgba(255, 92, 162, 0.4);
+                /* soft pink shadow */
+                transition: all 0.3s ease;
+                /* smooth hover effect */
+                position: relative;
+                /* for any floating effects */
+            }
+        
+            /* Hover animation */
+            .romantic-button:hover {
+                background: #ff3d8f;
+                /* slightly darker pink on hover */
+                transform: translateY(-2px);
+                /* lift effect */
+                box-shadow: 0 6px 15px rgba(255, 92, 162, 0.5);
+            }
+        
+            /* Optional: floating hearts effect inside button */
+            .romantic-button::after {
+                content: "💖";
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                font-size: 16px;
+                animation: floatHearts 2s infinite;
+                opacity: 0.7;
+            }
+        
+            @keyframes floatHearts {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0.7;
+                }
+        
+                50% {
+                    transform: translateY(-10px) rotate(15deg);
+                    opacity: 1;
+                }
+        
+                100% {
+                    transform: translateY(0) rotate(-15deg);
+                    opacity: 0.7;
+                }
+            }
+        </style>
 </head>
 <body>
     <!-- Romantic Background with Hearts and Rose Petals -->
@@ -136,6 +197,10 @@
                         class="message-input romantic-input-field"
                         autocomplete="off"
                     >
+                    <a href="romantic-gallery.html" class="romantic-button">
+                    <span class="shimmer"></span>
+                        Gallery
+                    </a>
                     <button id="sendButton" class="send-button romantic-send">
                         <div class="heart-send-icon">
                             💕
